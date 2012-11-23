@@ -1,0 +1,2 @@
+class NoahController < ApplicationController
+end
