@@ -1,0 +1,20 @@
+<%
+   candidates_total = @candidates.length
+   candidates_male_count = @candidates.scoped_by_sex("男").length
+   candidates_female_count = @candidates.scoped_by_sex("女").length
+%>
+<div class="candidate-number">
+    We have
+    <em class="em-number-total"><%= candidates_total %></em>
+    candidates in
+    <em class="em-number-city"><%= @city == "chengdu"? "Cheng du" : "Xi'an"%></em>
+    now!
+</div>
+
+<div class="candidate-gender">
+    Boys: <em class="em-number-boy"><%= candidates_male_count %></em> &
+    Girls: <em class="em-number-girl"><%= candidates_female_count %></em>
+</div>
+
+<div class="time-area">
+</div>

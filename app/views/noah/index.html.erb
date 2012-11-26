@@ -1,0 +1,8 @@
+<p>Noah</p>
+<%= @current_user.name %>
+<% @decks.each do |c| %>
+  <div class="deck-block">
+    <%= c.name %>
+  </div>
+<% end %>    
+
