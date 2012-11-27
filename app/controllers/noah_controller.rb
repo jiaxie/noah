@@ -16,16 +16,34 @@ class NoahController < ApplicationController
     deck_data = {:name => "deck1"}
     deck_data2 = {:name => "deck2"}
 
+    feature1 = {:name => "life"}
+    feature2 = {:name => "work"}
+
+    blog_data = {:title => "blog1", :content => "this is testing blog."}
+    blog_data2 = {:title => "blog2", :content => "this is another testing blog."}
+    blog_data3 = {:title => "blog3", :content => " 3 this is testing blog."}
+    blog_data4 = {:title => "blog4", :content => "4 this is another testing blog."}
+
     user.decks.create! deck_data
     user.decks.create! deck_data2
 
     first_deck = user.decks.find :first
+    second_deck = user.decks.find :last
+    p "***************"
+    p second_deck.id
 
-    blog_data = {:title => "blog1", :content => "this is testing blog."}
-    first_deck.blogs.create! blog_data
+    first_deck.features.create! feature1
+    first_deck.features.create! feature2
 
-    blog_data2 = {:title => "blog2", :content => "this is another testing blog."}
-    first_deck.blogs.create! blog_data2
+    second_deck.features.create! feature1
+    second_deck.features.create! feature2
+
+
+    first_deck.features.first.blogs.create! blog_data
+    first_deck.features.first.blogs.create! blog_data2
+
+    second_deck.features.first.blogs.create! blog_data3
+    second_deck.features.first.blogs.create! blog_data4
 
     redirect_to :action => 'index'
   end
