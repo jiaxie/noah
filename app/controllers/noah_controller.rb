@@ -1,4 +1,5 @@
 class NoahController < ApplicationController
+
   def index
     @current_user = User.find :first
     @decks = @current_user.decks
