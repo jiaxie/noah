@@ -1,6 +1,18 @@
 <%= @current_deck.name %>
+
+<div>
 <% @features.each do |c|%>
+  <%= link_to c.name, "/deck/" + @current_deck.id.to_s + "/feature/" + c.id.to_s %>
+<% end %>
+</div>  
+
+<%= "blogs of " + @current_feature.name %> 
+<% @blogs.each do |c|%>
   <div class="block-item">
-    <%= c.name %>
+    <%= c.title %>
+    <%= c.content %>
   </div>
 <% end %>  
+
+
+

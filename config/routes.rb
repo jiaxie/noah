@@ -1,14 +1,17 @@
 Noah::Application.routes.draw do
   #get "deck/show"
 
-  resource :deck do
-    resource :feature do
-      resource :blog
-    end
-  end
+  # resource :deck do
+  #   resource :feature do
+  #     resource :blog
+  #   end
+  # end
 
   match 'noah' => 'noah#index', :via => :get
-  match 'deck/show/:id' => 'deck#show', :via => :get
+  match 'deck/show' => 'deck#show', :via => :get
+  match 'deck/:id' => 'deck#show_default', :via => :get
+  match 'deck/:id/feature/:fid' => 'deck#choose_feature', :via => :get
+
   match 'fd' => 'noah#fake_data', :via => :get
   match 'cfd' => 'noah#clean_fake_data', :via => :get
 

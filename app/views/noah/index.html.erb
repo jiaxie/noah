@@ -2,7 +2,7 @@
 <%= @current_user.name %>
 <% @decks.each do |c| %>
   <div class="deck-block">
-    <%= link_to c.name, "deck/show/" + c.id.to_s %>
+    <%= link_to c.name, "deck/" + c.id.to_s %>
   </div>
 <% end %>    
 
