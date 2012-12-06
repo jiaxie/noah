@@ -4,6 +4,7 @@ class NoahController < ApplicationController
     @current_user = User.find :first
     if(@current_user != nil)
       @decks = @current_user.decks
+      session[:user_id] = @current_user.id
     end
   end
 
@@ -51,11 +52,15 @@ class NoahController < ApplicationController
   def clean_fake_data
     User.destroy_all
     Deck.destroy_all
+    Feature.destroy_all
     Blog.destroy_all
     redirect_to :action => 'index'
   end
 
   def clean
     User.destroy_all
+    Deck.destroy_all
+    Feature.destroy_all
+    Blog.destroy_all
   end
 end

@@ -11,6 +11,16 @@ class DeckController < ApplicationController
     render 'show'
   end
 
+  def delete_blog
+    @current_deck = Deck.find(session[:deck_id])
+    @features = @current_deck.features
+    @current_feature = @features.find(session[:feature_id])
+    @blog = @current_feature.blogs.find(params[:bid])
+    @blog.destroy
+    @blogs = @current_feature.blogs
+    render 'show'
+  end
+
   def show_default
     @current_deck = Deck.find(params[:id])
     @features = @current_deck.features
@@ -26,7 +36,6 @@ class DeckController < ApplicationController
     @features = @current_deck.features
     @current_feature = @features.find(params[:fid])
     @blogs = @current_feature.blogs
-    session[:deck_id] = params[:id]
     session[:feature_id] = params[:fid]
     render 'show'
   end

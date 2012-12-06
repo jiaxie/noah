@@ -16,6 +16,7 @@
   <div class="block-item">
     <%= c.title %>
     <%= c.content.html_safe %>
+    <%= link_to "delete", "/deck/delete_blog/" + c.id.to_s %>
   </div>
 <% end %>  
 
