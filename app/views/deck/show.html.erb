@@ -1,24 +1,49 @@
-<%= @current_deck.name %>
+<header class="container">
+<h1>Noah#7</h1>
+<p class="sub-title">Save your memory before end of the world</p>
+</header>
 
-<div>
-<% @features.each do |c|%>
-  <%= link_to c.name, "/deck/" + @current_deck.id.to_s + "/feature/" + c.id.to_s %>
-<% end %>
-</div>  
+<section class="deck-detail container">
+  <div class="deck-header">
+    <p class="deck-name">
+      <%= @current_deck.name %>
+    </p>
 
-<%= form_for :blog, :url => { :action => 'create_blog' } do |f| %>
-  <%= f.kindeditor :content %>
-  <%= f.submit :value=> "submit", :class => "button" %>
-<% end %>
+    <ul class="feature-list">
+      <% @features.each do |c|%>
+        <li>
+          <%= link_to c.name, "/deck/" + @current_deck.id.to_s + "/feature/" + c.id.to_s %>
+        </li>
+      <% end %>
+    </ul> 
+    <hr>
+  </div> 
 
-<%= "blogs of " + @current_feature.name %> 
-<% @blogs.each do |c|%>
-  <div class="block-item">
-    <%= c.title %>
-    <%= c.content.html_safe %>
-    <%= link_to "delete", "/deck/delete_blog/" + c.id.to_s %>
+  <div class="blog-create">
+    <p class="tip">Create new blog</p>
+    <%= form_for :blog, :url => { :action => 'create_blog' } do |f| %>
+      <%= f.kindeditor :content %>
+      <%= f.submit :value=> "submit", :class => "button" %>
+    <% end %>
+    <hr>
   </div>
-<% end %>  
+
+  <div class="blog-list">
+    <% @blogs.each do |c|%>
+      <div class="blog-item">
+        <h4 class="blog-title">
+          <%= c.title %>
+        </h4>
+        <div class="blog-content">
+          <%= c.content.html_safe %>
+        </div>
+        <div class="delete-link">
+          <%= link_to "delete", "/deck/delete_blog/" + c.id.to_s %>
+        </div>
+      </div>
+    <% end %> 
+  </div> 
+</div>
 
 
 
