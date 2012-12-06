@@ -19,13 +19,14 @@
     <hr>
   </div> 
 
-  <div class="blog-create">
-    <p class="tip">Create new blog</p>
+  <div class="blog-create" data-collapse>
+    <h3 class="tip">Create new blog</h3>
+    <div>
     <%= form_for :blog, :url => { :action => 'create_blog' } do |f| %>
       <%= f.kindeditor :content %>
       <%= f.submit :value=> "submit", :class => "button" %>
     <% end %>
-    <hr>
+  </div>
   </div>
 
   <div class="blog-list">

@@ -1,4 +1,4 @@
-body, ul, li {margin: 0px;}
+body, ul, li, h1,h3 {margin: 0px;}
 ul{list-style-type: none;}
 .container {width: 1000px; margin: 0 auto;}
 
@@ -19,8 +19,8 @@ section.deck-detail .deck-header ul.feature-list li a{
   color: #aaa;
   border-right: 1px solid #aaa; 
 }
-section.deck-detail .blog-create{display: block;}
-section.deck-detail .blog-create .tip{color: #aaa;}
+section.deck-detail .blog-create{}
+section.deck-detail .blog-create h3 a{color: #aaa; font-size: 16px;}
 section.deck-detail .blog-list .blog-item {
   position: relative;
   padding: 8px 0; 
