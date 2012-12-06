@@ -6,11 +6,16 @@
 <% end %>
 </div>  
 
+<%= form_for :blog, :url => { :action => 'create_blog' } do |f| %>
+  <%= f.kindeditor :content %>
+  <%= f.submit :value=> "submit", :class => "button" %>
+<% end %>
+
 <%= "blogs of " + @current_feature.name %> 
 <% @blogs.each do |c|%>
   <div class="block-item">
     <%= c.title %>
-    <%= c.content %>
+    <%= c.content.html_safe %>
   </div>
 <% end %>  
 
