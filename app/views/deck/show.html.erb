@@ -20,7 +20,7 @@
 <section class="deck-detail container">
 
   <div class="blog-create" data-collapse>
-    <h3 class="tip">Create new blog</h3>
+    <h3 class="tip">Create a new one</h3>
     <div>
     <%= form_for :blog, :url => { :action => 'create_blog' } do |f| %>
       <%= f.label :title, "title" %>
@@ -35,7 +35,10 @@
     <% @blogs.each do |c|%>
       <div class="blog-item">
         <h4 class="blog-title">
-          <%= c.title %>
+            <%= c.title %>
+          <span class="blog-date">
+            <%= c.created_at.strftime("%d %b %y") %>
+          </span>
         </h4>
         <div class="blog-content">
           <%= c.content.html_safe %>
