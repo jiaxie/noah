@@ -23,6 +23,8 @@
     <h3 class="tip">Create new blog</h3>
     <div>
     <%= form_for :blog, :url => { :action => 'create_blog' } do |f| %>
+      <%= f.label :title, "title" %>
+      <%= f.text_field :title %>
       <%= f.kindeditor :content %>
       <%= f.submit :value=> "submit", :class => "button" %>
     <% end %>
