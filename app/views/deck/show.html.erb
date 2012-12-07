@@ -1,9 +1,6 @@
-<header class="container">
+<header class="deck-page-header container">
 <h1>Noah#7</h1>
 <p class="sub-title">Save your memory before end of the world</p>
-</header>
-
-<section class="deck-detail container">
   <div class="deck-header">
     <p class="deck-name">
       <%= @current_deck.name %>
@@ -16,8 +13,11 @@
         </li>
       <% end %>
     </ul> 
-    <hr>
   </div> 
+  <hr>
+</header>
+
+<section class="deck-detail container">
 
   <div class="blog-create" data-collapse>
     <h3 class="tip">Create new blog</h3>

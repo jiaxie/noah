@@ -1,13 +1,14 @@
-<header class="container">
-<h1>Noah#7</h1>
-<p class="sub-title">Save your memory before end of the world</p>
-<hr>
+<header class="noah-page-header container">
+  <h1>Noah#7</h1>
+  <p class="sub-title">Save your memory before end of the world</p>
+
+  <p class="welcome-user">
+    <%= "Welcome aboard: " + @current_user.name %>
+  </p>
+  <hr>
 </header>
 
 <section class="aboard container">
-  <p>
-    <%= "Welcome aboard: " + @current_user.name %>
-  </p>
 <% @decks.each do |c| %>
   <div class="deck-item">
     <%= link_to c.name, "deck/" + c.id.to_s %>
