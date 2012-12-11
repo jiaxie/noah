@@ -1,6 +1,6 @@
 class NoahController < ApplicationController
 
-  def index
+  def show
     @current_user = User.find :first
     if(@current_user != nil)
       @decks = @current_user.decks

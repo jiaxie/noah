@@ -1,4 +1,4 @@
-body, ul, li, h1,h3, h4, p {margin: 0px;}
+body, ul, li, h1,h3, h4, p {margin: 0px; padding: 0px;}
 ul{list-style-type: none;}
 .container {width: 1000px; margin: 0 auto;}
 
@@ -9,8 +9,8 @@ header .sub-title{position: absolute; top: 30px; left: 110px; margin-left: 20px;
 header.noah-page-header .welcome-user{position: absolute; right: 0px; bottom: 0px;}
 section.aboard .deck-item a{float: left; margin: 10px; color: black; text-decoration: none;}
 
-header.deck-page-header .deck-header{position: absolute; right: 0px; bottom: 0px; overflow: hidden;}
-header.deck-page-header .deck-header .deck-name{font-size: 18px; color: #aaa; font-weight: bold; float: left;}
+header.deck-page-header .deck-header{position: absolute;right: 0px; bottom: 0px; overflow: hidden;}
+header.deck-page-header .deck-header .deck-name{ color: black; float: left; padding-right: 10px;}
 header.deck-page-header .deck-header ul.feature-list{overflow: hidden;}
 header.deck-page-header .deck-header ul.feature-list li{float: left;}
 header.deck-page-header .deck-header ul.feature-list li a{
@@ -28,6 +28,10 @@ section.deck-detail .blog-list .blog-item {
   position: relative;
   padding: 15px 0; 
   border-bottom: 1px solid #aaa;
+  max-width: 950px; 
+}
+section.deck-detail .blog-list .blog-item img{
+   max-width: 700px; 
 }
 section.deck-detail .blog-list .blog-item .blog-date{
   padding-bottom: 8px;
