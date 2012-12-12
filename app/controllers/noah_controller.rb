@@ -2,10 +2,13 @@ class NoahController < ApplicationController
 
   def show
     @current_user = User.find :first
-    if(@current_user != nil)
-      @decks = @current_user.decks
-      session[:user_id] = @current_user.id
+    if(@current_user == nil)
+      fake_data
     end
+
+    @current_user = User.find :first
+    @decks = @current_user.decks
+    session[:user_id] = @current_user.id
   end
 
   def fake_data
@@ -45,8 +48,6 @@ class NoahController < ApplicationController
 
     second_deck.features.first.blogs.create! blog_data3
     second_deck.features.first.blogs.create! blog_data4
-
-    redirect_to :action => 'index'
   end
 
   def clean_fake_data
