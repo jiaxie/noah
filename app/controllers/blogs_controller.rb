@@ -29,4 +29,11 @@ class BlogsController < ApplicationController
     @blog.update_attributes(params[:blog])
     redirect_to deck_path(params[:deck_id])
   end
+
+  def get_blog
+    @edited_blog = Blog.find(params[:bid])
+    @deck_id = session[:deck_id] 
+    @feature_id = session[:feature_id]
+    render :partial => 'edit_form'
+  end
 end

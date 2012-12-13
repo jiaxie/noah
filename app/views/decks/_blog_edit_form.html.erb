@@ -1,0 +1,8 @@
+<h1>Editing Blog</h1>
+<%= form_for @edited_blog, :url => deck_feature_blog_path do |f| %>
+      <%= f.label :title, "title" %>
+      <%= f.text_field :title %>
+      <%= f.kindeditor :content %>
+      <%= f.submit :value=> "submit", :class => "button" %>
+<% end %>
+

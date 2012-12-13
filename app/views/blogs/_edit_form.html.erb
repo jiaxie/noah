@@ -1,0 +1,9 @@
+<%= form_for @edited_blog, :url => deck_feature_blog_path(@deck_id, @feature_id, @edited_blog.id) do |f| %>
+      <%= f.label :title, "title" %>
+      <%= f.text_field :title %>
+      <%= f.kindeditor :content%>
+      <%= f.submit :value=> "submit", :class => "button" %>
+<% end %>
+<script type="text/javascript">
+ KindEditor.create(".edit-form textarea", {"id":"edit_blog_content","width":"100%","height":300,"allowFileManager":true,"uploadJson":"/kindeditor/upload","fileManagerJson":"/kindeditor/filemanager"});
+</script>

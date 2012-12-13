@@ -4,5 +4,7 @@ class FeaturesController < ApplicationController
     @features = @current_deck.features
     @current_feature = @features.find(params[:id])
     @blogs = @current_feature.blogs
+    session[:deck_id] = params[:deck_id]
+    session[:feature_id] = @current_feature.id
   end
 end

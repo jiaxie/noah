@@ -8,6 +8,8 @@ Noah::Application.routes.draw do
     end
   end
 
+  match 'blogs/get_blog/:bid' => 'blogs#get_blog', :via => :get
+
   # match 'noah' => 'noah#index', :via => :get
   # match 'deck/show' => 'deck#show', :via => :get
   # match 'deck/:id/feature/:fid' => 'deck#choose_feature', :via => :get

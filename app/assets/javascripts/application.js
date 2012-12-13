@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require kindeditor
 //= require jquery.collapse
+//= edit_form_render
 //= require_tree .
+
