@@ -17,4 +17,16 @@ class BlogsController < ApplicationController
     @blogs = @current_feature.blogs
     redirect_to deck_path(params[:deck_id])
   end
+
+  def edit
+    @current_deck = Deck.find(params[:deck_id])
+    @current_feature = @current_deck.features.find(params[:feature_id])
+    @blog = @current_feature.blogs.find(params[:id])
+  end
+
+  def update
+    @blog = Blog.find(params[:id])
+    @blog.update_attributes(params[:blog])
+    redirect_to deck_path(params[:deck_id])
+  end
 end

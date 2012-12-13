@@ -1,5 +1,6 @@
 Noah::Application.routes.draw do
-  #get "deck/show"  
+
+  resource :noah
 
   resources :decks do
     resources :features do
