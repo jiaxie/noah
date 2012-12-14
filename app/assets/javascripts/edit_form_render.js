@@ -11,7 +11,6 @@ var hide_cancel_button = function(){
 }
 
 var render_edit_form = function(){
-  $(this).hide();
   var bid = this.id;
 
   $('.blog-title').each(function(){
@@ -32,6 +31,8 @@ var render_edit_form = function(){
     }
   })
 
+  $(this).hide();
+
   $.ajax("/blogs/get_blog/" + bid, {dataType:'html'}).success(function(response){
     $('.edit-form').each(function(){
       if(this.id == bid){
@@ -44,7 +45,7 @@ var render_edit_form = function(){
 }
 
 var cancel_edit = function(){
-  $('form').hide();
+  $('.edit-form form').remove();
 
   var bid = this.id;
   $('.blog-title').each(function(){
@@ -54,6 +55,12 @@ var cancel_edit = function(){
     })
 
   $('.blog-content').each(function(){
+    if(this.id == bid){
+      $(this).show();
+    }
+  })
+
+  $('.edit').each(function(){
     if(this.id == bid){
       $(this).show();
     }
