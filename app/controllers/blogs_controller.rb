@@ -27,7 +27,7 @@ class BlogsController < ApplicationController
   def update
     @blog = Blog.find(params[:id])
     @blog.update_attributes(params[:blog])
-    redirect_to deck_path(params[:deck_id])
+    redirect_to deck_feature_path(session[:deck_id],session[:feature_id])
   end
 
   def get_blog
