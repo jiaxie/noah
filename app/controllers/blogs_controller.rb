@@ -5,7 +5,7 @@ class BlogsController < ApplicationController
     @current_feature = @features.find(session[:feature_id])
     @current_feature.blogs.create! params[:blog]
     @blogs = @current_feature.blogs
-    redirect_to deck_path(session[:deck_id]) 
+    goto_deck
   end
 
   def destroy
@@ -15,7 +15,7 @@ class BlogsController < ApplicationController
     @blog = @current_feature.blogs.find(params[:id])
     @blog.destroy
     @blogs = @current_feature.blogs
-    redirect_to deck_path(params[:deck_id])
+    goto_deck
   end
 
   def edit
@@ -27,7 +27,7 @@ class BlogsController < ApplicationController
   def update
     @blog = Blog.find(params[:id])
     @blog.update_attributes(params[:blog])
-    redirect_to deck_feature_path(session[:deck_id],session[:feature_id])
+    goto_deck
   end
 
   def get_blog
@@ -35,5 +35,9 @@ class BlogsController < ApplicationController
     @deck_id = session[:deck_id] 
     @feature_id = session[:feature_id]
     render :partial => 'edit_form'
+  end
+
+  def goto_deck
+    redirect_to deck_feature_path(session[:deck_id],session[:feature_id])
   end
 end
