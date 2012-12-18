@@ -33,9 +33,9 @@ class NoahController < ApplicationController
 
   def fake_data
     clean
-    user = User.create!({:name => 'admin', :password => 'admin123'}) 
-    deck_data = {:name => "deck1"}
-    deck_data2 = {:name => "deck2"}
+    user = User.create!({:name => 'admin', :password => 'admin123'})
+    deck_data = { :name => "deck1" }
+    deck_data2 = { :name => "deck2" }
 
     user.decks.create! deck_data
     user.decks.create! deck_data2
