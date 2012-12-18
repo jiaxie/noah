@@ -8,6 +8,9 @@ Noah::Application.routes.draw do
     end
   end
 
+  match 'noah/show' => 'noah#show', :via => :get
+  match 'noah/login' => 'noah#login', :via => :get
+  match 'noah/login' => 'noah#login_validate', :via => :post
   match 'blogs/get_blog/:bid' => 'blogs#get_blog', :via => :get
 
   # match 'noah' => 'noah#index', :via => :get
@@ -19,5 +22,5 @@ Noah::Application.routes.draw do
   # match 'fd' => 'noah#fake_data', :via => :get
   # match 'cfd' => 'noah#clean_fake_data', :via => :get
 
-  root :controller => 'noah', :action => 'show'
+  root :controller => 'noah', :action => 'index'
 end

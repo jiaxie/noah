@@ -1,5 +1,26 @@
 class NoahController < ApplicationController
 
+  def index
+    if session[:login_at] != nil
+      redirect_to "/noah/show" 
+      return
+    end
+    redirect_to "/noah/login"  
+  end
+
+  def login
+  end
+
+  def login_validate
+    if params[:oracle]  == "7"
+      session[:login_at] = Time.now
+      redirect_to "/noah/show"
+    else
+      flash[:error_message] = "invalid"
+      redirect_to "/noah/login" 
+    end
+  end
+
   def show
     @current_user = User.find :first
     if(@current_user == nil)
