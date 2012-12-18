@@ -19,7 +19,7 @@ Noah::Application.routes.draw do
   # match 'deck/create_blog' => 'deck#create_blog', :via => :post
   # match 'deck/delete_blog/:bid' => 'deck#delete_blog', :via => :get
   # match 'deck/:id' => 'deck#show_default', :via => :get
-  # match 'fd' => 'noah#fake_data', :via => :get
+  match 'fd' => 'noah#fake_data', :via => :get
   # match 'cfd' => 'noah#clean_fake_data', :via => :get
 
   root :controller => 'noah', :action => 'index'

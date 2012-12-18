@@ -1,18 +1,18 @@
 class NoahController < ApplicationController
 
   def index
-    if session[:login_at] != nil
+    if session[:login_at].present?
       redirect_to "/noah/show" 
-      return
-    end
-    redirect_to "/noah/login"  
+    else
+      redirect_to "/noah/login"
+    end  
   end
 
   def login
   end
 
   def login_validate
-    if params[:oracle]  == "7"
+    if user_validate
       session[:login_at] = Time.now
       redirect_to "/noah/show"
     else
@@ -21,28 +21,36 @@ class NoahController < ApplicationController
     end
   end
 
-  def show
-    @current_user = User.find :first
-    if(@current_user == nil)
-      fake_data
-    end
+  def user_validate
+    session[:current_user] = User.find_by_name_and_password(params[:username], params[:password])
+    session[:current_user].present?
+  end
 
-    @current_user = User.find :first
+  def show
+    @current_user = session[:current_user]
     @decks = @current_user.decks
-    session[:user_id] = @current_user.id
   end
 
   def fake_data
     clean
-    user = User.new
-    user.name = "Mr Dummy"
-    user.save
-
+    user = User.create!({:name => 'admin', :password => 'admin123'}) 
     deck_data = {:name => "deck1"}
     deck_data2 = {:name => "deck2"}
 
     user.decks.create! deck_data
     user.decks.create! deck_data2
+
+    feature_data = {:name => "blog"}
+    feature_data2 = {:name => "resource"}
+
+    deck = user.decks.find :first
+    deck.features.create! feature_data
+    deck.features.create! feature_data2
+
+    deck2 = user.decks.find :last
+    deck2.features.create! feature_data
+    deck2.features.create! feature_data2
+    redirect_to "/noah/login"
   end
 
   def clean_fake_data
