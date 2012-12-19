@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30d69c5e-3b89-4678-90fd-692b0e35c961" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/timeline.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/timeline.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/style.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/features/show.html.erb" afterPath="$PROJECT_DIR$/app/views/features/show.html.erb" />
     </list>
     <ignored path="noah.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -109,7 +111,7 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="1" selection-start="1739" selection-end="1739" vertical-scroll-proportion="0.5023112">
+            <state line="35" column="7" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.5901387">
               <folding />
             </state>
           </provider>
@@ -720,7 +722,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="1" selection-start="1739" selection-end="1739" vertical-scroll-proportion="0.5023112">
+        <state line="35" column="7" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.5901387">
           <folding />
         </state>
       </provider>
