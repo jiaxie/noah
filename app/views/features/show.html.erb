@@ -34,10 +34,10 @@
     <% @blogs.each do |c|%>
       <div class="blog-item" id="<%= c.id %>">
         <h4 class="blog-title" id="<%= c.id %>">
-            <%= c.title %>
           <span class="blog-date">
             <%= c.created_at.strftime("%d %b %y") %>
           </span>
+          <%= c.title %>
         </h4>
         <div class="blog-content" id="<%= c.id %>" >
           <%= c.content.html_safe %>

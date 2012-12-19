@@ -29,6 +29,10 @@ section.deck-detail .deck-header ul.feature-list li a{
 
 section.deck-detail .blog-create{overflow: hidden; padding-bottom: 15px;}
 section.deck-detail .blog-create h3 a{float: right; color: #aaa; font-size: 14px;}
+section.deck-detail .blog-list {
+    border-left: solid 1px #DDD;
+    padding-left: 49px;
+}
 section.deck-detail .blog-list .blog-item {
   position: relative;
   padding: 15px 0; 
@@ -39,13 +43,17 @@ section.deck-detail .blog-list .blog-item img{
    max-width: 700px; 
 }
 section.deck-detail .blog-list .blog-item .blog-date{
-  padding-bottom: 8px;
-}
-section.deck-detail .blog-list .blog-item .blog-date{
-  padding-left: 10px;
-  font-size: 10px;
-  color: #aaa;
-  display: inline-block;
+    line-height: 44px;
+    font-size: 10px;
+    color: #AAA;
+    display: block;
+    position: absolute;
+    left: -75px;
+    background: #EFEFEF;
+    border-radius: 36px;
+    height: 50px;
+    width: 50px;
+    top: -4px;
 }
 section.deck-detail .blog-list .blog-item .blog-content{
   margin: 6px;
