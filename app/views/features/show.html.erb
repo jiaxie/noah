@@ -1,5 +1,23 @@
 <section class="deck-detail container">
 
+  <% if @current_deck != nil%>
+    <div class="deck-header">
+      <p class="deck-name">
+        <%= @current_deck.name %>
+      </p>
+
+      <% if @features != nil%>
+        <ul class="feature-list">
+          <% @features.each do |c|%>
+            <li>
+              <%= link_to c.name, deck_feature_path(@current_deck.id, c.id) %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %> 
+    </div> 
+  <% end %>
+
   <div class="blog-create" data-collapse>
     <h3 class="tip">Create a new one</h3>
     <div>

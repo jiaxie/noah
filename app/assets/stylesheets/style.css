@@ -7,14 +7,18 @@ header h1{padding: 20px 0;}
 header .sub-title{position: absolute; top: 30px; left: 110px; margin-left: 20px;}
 
 header .welcome-user{position: absolute; right: 0px; top: 30px;}
-header .welcome-user a.logout{color: #aaa; text-decoration: none; } 
+header .operates{position: absolute; right: 0px; bottom: 0px; padding-bottom: 5px;}
+header .operates a{margin-left: 4px;} 
+header .operates a.logout{color: #aaa; text-decoration: none;} 
+header .operates a.back{ color: #aaa; text-decoration: none;}
+
 section.aboard .deck-item a{float: left; margin: 10px; color: black; text-decoration: none;}
 
-header .deck-header{position: absolute;right: 0px; bottom: 0px; overflow: hidden;}
-header .deck-header .deck-name{ color: black; float: left; padding-right: 10px;}
-header .deck-header ul.feature-list{overflow: hidden;}
-header .deck-header ul.feature-list li{float: left;}
-header .deck-header ul.feature-list li a{
+section.deck-detail .deck-header{position: relative;right: 0px; top: 0px; overflow: hidden;}
+section.deck-detail .deck-header .deck-name{ color: black; float: left; padding-right: 10px;}
+section.deck-detail .deck-header ul.feature-list{overflow: hidden;}
+section.deck-detail .deck-header ul.feature-list li{float: left;}
+section.deck-detail .deck-header ul.feature-list li a{
   margin-left: 10px; 
   padding-left: 10px; 
   color: black; 

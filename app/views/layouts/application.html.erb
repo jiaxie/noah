@@ -15,28 +15,17 @@
 
   <% if session[:current_user] != nil%>
     <p class="welcome-user">
-    <%= session[:current_user].name %>
-    <a href="/noah/logout" class="logout"> ~>logout</a>
+    <%= "Hi, " + session[:current_user].name %>
     </p>
   <% end %>
 
-  <% if @current_deck != nil%>
-    <div class="deck-header">
-      <p class="deck-name">
-        <%= @current_deck.name %>
-      </p>
-
-      <% if @features != nil%>
-        <ul class="feature-list">
-          <% @features.each do |c|%>
-            <li>
-              <%= link_to c.name, deck_feature_path(@current_deck.id, c.id) %>
-            </li>
-          <% end %>
-        </ul>
-      <% end %> 
-    </div> 
+  <% if session[:login_at] != nil%>
+    <div class="operates">
+      <a href="/noah/logout" class="logout"> ~>logout</a>
+      <a href="/noah/show" class="back"> ~>back</a>
+    </div>
   <% end %>
+
   <hr>
 </header>
 
