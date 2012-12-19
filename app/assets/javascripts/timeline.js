@@ -3,12 +3,14 @@ $(function(){
 });
 
 var hide_and_bundle = function(){
-  $(".time-panel").css('height','20');
-  $(".time-panel").hover(function(){
-    $(".time-panel").css('height','80');
+  $(".time-line").hide();
+
+  $(".mouse-detector").hover(function(){
+    $(".time-line").show();
   })
-  $(".time-panel").bind('mouseout',function(){
-    $(".time-panel").css('height','20');
+
+  $(".time-line").bind('mouseout',function(){
+    $(".time-line").hide();
   })
 }
 
