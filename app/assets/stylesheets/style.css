@@ -33,14 +33,21 @@ section.deck-detail .blog-create h3 a{float: right; color: #aaa; font-size: 14px
 section.deck-detail .blog-list {
     border-left: solid 1px #DDD;
     padding-left: 49px;
+    margin-bottom: 60px;
 }
 section.deck-detail .blog-list .blog-item {
   position: relative;
-  padding: 15px 0; 
-  border-bottom: 1px solid #aaa; 
+  padding: 15px 0;
+  border-bottom: 1px solid #aaa;
+  max-width: 950px;
+}
+
+section.deck-detail .blog-list .blog-item .blog-title{
+   font-size: 20px;
+   line-height: 50px;
 }
 section.deck-detail .blog-list .blog-item img{
-   max-width: 700px; 
+   max-width: 700px;
 }
 section.deck-detail .blog-list .blog-item .blog-date{
     line-height: 44px;
@@ -53,7 +60,7 @@ section.deck-detail .blog-list .blog-item .blog-date{
     border-radius: 36px;
     height: 50px;
     width: 50px;
-    top: -4px;
+    top: -2px;
 }
 section.deck-detail .blog-list .blog-item .blog-content{
   margin: 6px;
