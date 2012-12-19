@@ -1,22 +1,3 @@
-<header class="deck-page-header container">
-<h1>Noah#7</h1>
-<p class="sub-title">Save your memory before end of the world</p>
-  <div class="deck-header">
-    <p class="deck-name">
-      <%= @current_deck.name %>
-    </p>
-
-    <ul class="feature-list">
-      <% @features.each do |c|%>
-        <li>
-          <%= link_to c.name, deck_feature_path(@current_deck.id, c.id) %>
-        </li>
-      <% end %>
-    </ul> 
-  </div> 
-  <hr>
-</header>
-
 <section class="deck-detail container">
 
   <div class="blog-create" data-collapse>

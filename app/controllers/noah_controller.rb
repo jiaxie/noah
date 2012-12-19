@@ -11,6 +11,12 @@ class NoahController < ApplicationController
   def login
   end
 
+  def logout
+    session[:login_at] = nil
+    session[:current_user] = nil
+    redirect_to "/noah/login"
+  end
+
   def login_validate
     if user_validate
       session[:login_at] = Time.now

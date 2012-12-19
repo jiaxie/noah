@@ -9,6 +9,37 @@
 </head>
 <body>
 
+<header class="container">
+  <h1>Noah.7</h1>
+  <p class="sub-title">Save your memory before end of the world</p>
+
+  <% if session[:current_user] != nil%>
+    <p class="welcome-user">
+    <%= session[:current_user].name %>
+    <a href="/noah/logout" class="logout"> ~>logout</a>
+    </p>
+  <% end %>
+
+  <% if @current_deck != nil%>
+    <div class="deck-header">
+      <p class="deck-name">
+        <%= @current_deck.name %>
+      </p>
+
+      <% if @features != nil%>
+        <ul class="feature-list">
+          <% @features.each do |c|%>
+            <li>
+              <%= link_to c.name, deck_feature_path(@current_deck.id, c.id) %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %> 
+    </div> 
+  <% end %>
+  <hr>
+</header>
+
 <%= yield %>
 
 </body>

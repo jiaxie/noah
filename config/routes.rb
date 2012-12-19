@@ -11,6 +11,7 @@ Noah::Application.routes.draw do
   match 'noah/show' => 'noah#show', :via => :get
   match 'noah/login' => 'noah#login', :via => :get
   match 'noah/login' => 'noah#login_validate', :via => :post
+  match 'noah/logout' => 'noah#logout', :via => :get
   match 'blogs/get_blog/:bid' => 'blogs#get_blog', :via => :get
 
   # match 'noah' => 'noah#index', :via => :get
