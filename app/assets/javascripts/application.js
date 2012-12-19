@@ -15,5 +15,6 @@
 //= require kindeditor
 //= require jquery.collapse
 //= edit_form_render
+//= timeline
 //= require_tree .
 

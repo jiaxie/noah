@@ -14,7 +14,7 @@ header .operates a.back{ color: #aaa; text-decoration: none;}
 
 section.aboard .deck-item a{float: left; margin: 10px; color: black; text-decoration: none;}
 
-section.deck-detail .deck-header{position: relative;right: 0px; top: 0px; overflow: hidden;}
+section.deck-detail .deck-header{position: relative;right: 0px; top: 0px; overflow: hidden; padding-bottom: 25px;}
 section.deck-detail .deck-header .deck-name{ color: black; float: left; padding-right: 10px;}
 section.deck-detail .deck-header ul.feature-list{overflow: hidden;}
 section.deck-detail .deck-header ul.feature-list li{float: left;}
@@ -29,6 +29,7 @@ section.deck-detail .deck-header ul.feature-list li a{
 
 section.deck-detail .blog-create{overflow: hidden; padding-bottom: 15px;}
 section.deck-detail .blog-create h3 a{float: right; color: #aaa; font-size: 14px;}
+
 section.deck-detail .blog-list {
     border-left: solid 1px #DDD;
     padding-left: 49px;
@@ -36,8 +37,7 @@ section.deck-detail .blog-list {
 section.deck-detail .blog-list .blog-item {
   position: relative;
   padding: 15px 0; 
-  border-bottom: 1px solid #aaa;
-  max-width: 950px; 
+  border-bottom: 1px solid #aaa; 
 }
 section.deck-detail .blog-list .blog-item img{
    max-width: 700px; 
@@ -66,4 +66,16 @@ section.deck-detail .blog-list .blog-item .delete-link{
 section.deck-detail .blog-list .blog-item .delete-link a{
   text-decoration: none;
   color: #aaa;
+}
+
+section.deck-detail .time-panel{
+  width: 1000px;
+  margin: 0 auto;
+  height: 75px;
+  position: fixed;
+  bottom: 3px;
+  background-color: #ddd;
+}
+section.deck-detail .time-panel img.time-icon{
+  height: 20px;
 }
