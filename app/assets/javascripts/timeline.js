@@ -40,14 +40,12 @@ var markElephant = function(){
     winHeight = document.body.clientHeight;
   }
 
-  minDistance = winHeight;
-
   $(".blog-item").each(function(){
-    var dis = this.getBoundingClientRect().top;
-    if(dis >= winHeight * 0.2 && dis < winHeight * 0.7 && dis < minDistance){
-       minDistance = dis;
-       nearest = this;
-    }
+    var topDis = this.getBoundingClientRect().top;
+    var bottomDis = this.getBoundingClientRect().bottom;
+     if(topDis < winHeight*0.4 && bottomDis >= winHeight*0.4){
+         nearest = this;
+     }
   });
 
   if(nearest !== null){
