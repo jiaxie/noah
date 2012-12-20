@@ -41,7 +41,7 @@ var markElephant = function(){
 
   $(".blog-item").each(function(){
     var dis = this.getBoundingClientRect().top;
-    if(dis >= 20 && dis < minDistance){
+    if(dis >= minDistance * 0.2 && dis < minDistance * 0.7){
        minDistance = dis;
        nearest = this;
     }
