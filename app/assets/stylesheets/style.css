@@ -90,7 +90,7 @@ section.deck-detail .time-panel{
   position: fixed;
   bottom: 0px;
 }
-section.deck-detail .time-panel .time-line{
+section.deck-detail .time-panel .horizon-timeline{
   width: 1000px;
   height: 80px;
   background-color: #ddd;

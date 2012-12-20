@@ -8,7 +8,7 @@ $(window).scroll(function(){
 });
 
 var hide_and_bundle = function(){
-  $(".time-line").hide();
+  $(".horizon-timeline").hide();
 
   // $(".mouse-detector").hover(function(){
   //   $(".time-line").show();
@@ -38,11 +38,10 @@ var markElephant = function(){
        minDistance = dis;
        nearest = this;
     }
-  })
+  });
 
   if(nearest !== null){
     var id = nearest.id;
-
     $(".blog-item").each(function(){
       if(this.id == id){
          $(this).removeClass("rat");
@@ -55,4 +54,5 @@ var markElephant = function(){
 
   }
 }
+
 
