@@ -31,17 +31,20 @@ var scroll_magic = function(){
 var markElephant = function(){
   var minDistance;
   var nearest = null;
+  var winHeight;
 
   if (window.innerHeight){
-    minDistance = window.innerHeight;
+    winHeight = window.innerHeight;
   }
   else if((document.body) && (document.body.clientHeight)){
-    minDistance = document.body.clientHeight;
+    winHeight = document.body.clientHeight;
   }
+
+  minDistance = winHeight;
 
   $(".blog-item").each(function(){
     var dis = this.getBoundingClientRect().top;
-    if(dis >= 20 && dis < minDistance){
+    if(dis >= winHeight * 0.2 && dis < winHeight * 0.7 && dis < minDistance){
        minDistance = dis;
        nearest = this;
     }
