@@ -1,26 +1,9 @@
 <section class="deck-detail container">
 
-  <% if @current_deck != nil%>
-    <div class="deck-header">
-      <p class="deck-name">
-        <%= @current_deck.name %>
-      </p>
-
-      <% if @features != nil%>
-        <ul class="feature-list">
-          <% @features.each do |c|%>
-            <li>
-              <%= link_to c.name, deck_feature_path(@current_deck.id, c.id) %>
-            </li>
-          <% end %>
-        </ul>
-      <% end %> 
-    </div> 
-  <% end %>
+  <%= render :partial => 'subheader' %>
 
   <div class="blog-create" data-collapse>
-    <h3 class="tip">Create a new one</h3>
-    <div>
+    <p class="tip">+ create a new one</p>
     <%= form_for :blog, :url => deck_feature_blogs_path(@current_deck.id, @current_feature.id) do |f| %>
       <%= f.label :title, "title" %>
       <%= f.text_field :title %>
@@ -28,6 +11,8 @@
       <%= f.submit :value=> "submit", :class => "button" %>
     <% end %>
   </div>
+
+  <div class="header-block">
   </div>
 
   <div class="blog-list">
@@ -43,13 +28,16 @@
           <%= c.content.html_safe %>
         </div>
         <div class="edit-form" id="<%= c.id %>"></div>
-        <div class="delete-link">
-          <%= link_to "edit", "#", :class => "edit", :id =>c.id %>
-          <%= link_to "cancel", "#", :class => "cancel", :id =>c.id %>
-          <%= link_to "delete",deck_feature_blog_path(@current_deck.id, @current_feature.id, c.id),:confirm => "Are you sure?", :method => :delete, :class => "delete" %>
+        <div class="operation">
+          <%= link_to "<edit> ", "#", :class => "edit", :id =>c.id %>
+          <%= link_to "<cancel> ", "#", :class => "cancel", :id =>c.id %>
+          <%= link_to "<delete> ",deck_feature_blog_path(@current_deck.id, @current_feature.id, c.id),:confirm => "Are you sure?", :method => :delete, :class => "delete" %>
         </div>
       </div>
     <% end %> 
+  </div>
+
+  <div class="footer-block">
   </div>
 
   <div class="time-panel">

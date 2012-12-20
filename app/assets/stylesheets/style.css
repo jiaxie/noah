@@ -4,21 +4,23 @@ ul{list-style-type: none;}
 
 header {color: #aaa; position: relative;}
 header h1{padding: 20px 0;}
-header .sub-title{position: absolute; top: 30px; left: 110px; margin-left: 20px;}
-
+header .sub-title{position: absolute; top: 35px; left: 110px; margin-left: 20px;}
 header .welcome-user{position: absolute; right: 0px; top: 30px;}
-header .operates{position: absolute; right: 0px; bottom: 0px; padding-bottom: 5px;}
-header .operates a{margin-left: 4px;} 
-header .operates a.logout{color: #aaa; text-decoration: none;} 
-header .operates a.back{ color: #aaa; text-decoration: none;}
 
 section.aboard .deck-item a{float: left; margin: 10px; color: black; text-decoration: none;}
 
-section.deck-detail .deck-header{position: relative;right: 0px; top: 0px; overflow: hidden; padding-bottom: 25px;}
-section.deck-detail .deck-header .deck-name{ color: black; float: left; padding-right: 10px;}
-section.deck-detail .deck-header ul.feature-list{overflow: hidden;}
-section.deck-detail .deck-header ul.feature-list li{float: left;}
-section.deck-detail .deck-header ul.feature-list li a{
+section.deck-detail .sub-header{display: none;}
+section.deck-detail .sub-header{position: relative; background-color: #eee; margin-top: 30px; margin-bottom: 10px; height: 20px;}
+section.deck-detail .sub-header .operates{position: absolute; right: 0; top: 0px;}
+section.deck-detail .sub-header .operates a{margin-left: 4px;} 
+section.deck-detail .sub-header .operates a.logout{color: #aaa; text-decoration: none;} 
+section.deck-detail .sub-header .operates a.back{ color: #aaa; text-decoration: none;}
+
+section.deck-detail .sub-header .deck-contents{position: absolute; left: 0px; top: 0px;}
+section.deck-detail .sub-header .deck-contents .deck-name{ color: black; float: left; padding-right: 10px;}
+section.deck-detail .sub-header .deck-contents ul.feature-list{overflow: hidden;}
+section.deck-detail .sub-header .deck-contents ul.feature-list li{float: left;}
+section.deck-detail .sub-header .deck-contents ul.feature-list li a{
   margin-left: 10px; 
   padding-left: 10px; 
   color: black; 
@@ -27,8 +29,8 @@ section.deck-detail .deck-header ul.feature-list li a{
   border-left: 1px solid #aaa; 
 }
 
-section.deck-detail .blog-create{overflow: hidden; padding-bottom: 15px;}
-section.deck-detail .blog-create h3 a{float: right; color: #aaa; font-size: 14px;}
+section.deck-detail .blog-create{overflow: hidden; padding: 0 0 30px 0;}
+section.deck-detail .blog-create a{float: right; color: #aaa; text-decoration: none;}
 
 section.deck-detail .blog-list {
     border-left: solid 1px #DDD;
@@ -37,13 +39,21 @@ section.deck-detail .blog-list {
 }
 section.deck-detail .blog-list .blog-item {
   position: relative;
-  padding: 15px 0;
-  border-bottom: 1px solid #aaa;
+  padding: 10px 0 45px 0;
+  /*border-top: 1px solid #ccc;*/
   max-width: 950px;
 }
 
+section.deck-detail .blog-list .blog-item.rat {opacity: 0.4;}
+section.deck-detail .blog-list .blog-item.rat .blog-content {display: none;}
+
+section.deck-detail .blog-list .blog-item.elephant{
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
 section.deck-detail .blog-list .blog-item .blog-title{
-   font-size: 20px;
+   font-size: 24px;
    line-height: 50px;
 }
 section.deck-detail .blog-list .blog-item img{
@@ -60,17 +70,17 @@ section.deck-detail .blog-list .blog-item .blog-date{
     border-radius: 36px;
     height: 50px;
     width: 50px;
-    top: -2px;
+    top: 8px;
 }
 section.deck-detail .blog-list .blog-item .blog-content{
   margin: 6px;
 }
-section.deck-detail .blog-list .blog-item .delete-link{
+section.deck-detail .blog-list .blog-item .operation{
   position: absolute;
-  bottom: 0px;
+  top: 20px;
   right: 0px;
 }
-section.deck-detail .blog-list .blog-item .delete-link a{
+section.deck-detail .blog-list .blog-item .operation a{
   text-decoration: none;
   color: #aaa;
 }
@@ -89,4 +99,12 @@ section.deck-detail .time-panel .mouse-detector{
   background-color: #eee;
   width: 100%;
   height: 5px;
+}
+
+.header-block{
+  background-color: white;
+  height: 0px;  
+}
+.footer-block{
+  height: 350px;
 }

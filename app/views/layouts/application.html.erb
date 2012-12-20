@@ -15,18 +15,9 @@
 
   <% if session[:current_user] != nil%>
     <p class="welcome-user">
-    <%= "Hi, " + session[:current_user].name %>
+    <%= session[:current_user].name %>
     </p>
   <% end %>
-
-  <% if session[:login_at] != nil%>
-    <div class="operates">
-      <a href="/noah/logout" class="logout"> ~>logout</a>
-      <a href="/noah/show" class="back"> ~>back</a>
-    </div>
-  <% end %>
-
-  <hr>
 </header>
 
 <%= yield %>
