@@ -29,20 +29,19 @@ var scroll_magic = function(){
 }
 
 var markElephant = function(){
-  var minDistance = document.documentElement.scrollHeight;
+  var minDistance;
   var nearest = null;
 
-  var winHeight;
   if (window.innerHeight){
-    winHeight = window.innerHeight;
+    minDistance = window.innerHeight;
   }
   else if((document.body) && (document.body.clientHeight)){
-    winHeight = document.body.clientHeight;
+    minDistance = document.body.clientHeight;
   }
 
   $(".blog-item").each(function(){
     var dis = this.getBoundingClientRect().top;
-    if(dis >= 20 && dis <= (winHeight - 20) && dis < minDistance){
+    if(dis >= 20 && dis < minDistance){
        minDistance = dis;
        nearest = this;
     }
