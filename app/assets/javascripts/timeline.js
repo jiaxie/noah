@@ -21,11 +21,10 @@ var hide_and_bundle = function(){
 
 var scroll_magic = function(){
   $(".blog-item").each(function(){
-    $(this).addClass("rat");
+    $(this).addClass("fade");
   })
 
-  $(".blog-item :first").removeClass("rat");
-  $(".blog-item :first").addClass("elephant");
+  $(".blog-item :first").removeClass("fade");
 }
 
 var markElephant = function(){
@@ -52,11 +51,10 @@ var markElephant = function(){
     var id = nearest.id;
     $(".blog-item").each(function(){
       if(this.id == id){
-         $(this).removeClass("rat");
-         $(this).addClass("elephant");
+         $(this).removeClass("fade");
       }
       else{
-        $(this).addClass("rat");
+        $(this).addClass("fade");
       }
     })
 

@@ -42,13 +42,12 @@ section.deck-detail .blog-list .blog-item {
   padding: 10px 0 45px 0;
   /*border-top: 1px solid #ccc;*/
   max-width: 950px;
-}
-
-section.deck-detail .blog-list .blog-item.rat {opacity: 0.4;}
-section.deck-detail .blog-list .blog-item.elephant{
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
+section.deck-detail .blog-list .blog-item.fade {opacity: 0.4;}
+section.deck-detail .blog-list .blog-item.fade .operation{display: none;}
 
 section.deck-detail .blog-list .blog-item .blog-title{
    font-size: 24px;
