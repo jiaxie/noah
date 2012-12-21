@@ -29,9 +29,9 @@
         </div>
         <div class="edit-form" id="<%= c.id %>"></div>
         <div class="operation">
-          <%= link_to "<edit> ", "#", :class => "edit", :id =>c.id %>
-          <%= link_to "<cancel> ", "#", :class => "cancel", :id =>c.id %>
-          <%= link_to "<delete> ",deck_feature_blog_path(@current_deck.id, @current_feature.id, c.id),:confirm => "Are you sure?", :method => :delete, :class => "delete" %>
+          <%= link_to "", "#", :class => "edit", :id =>c.id %>
+          <%= link_to "🚫", "#", :class => "cancel", :id =>c.id %>
+          <%= link_to "❌",deck_feature_blog_path(@current_deck.id, @current_feature.id, c.id),:confirm => "Are you sure?", :method => :delete, :class => "delete" %>
         </div>
       </div>
     <% end %> 

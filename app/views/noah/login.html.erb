@@ -2,7 +2,7 @@
 
   <%= form_tag('', :id => "auth-form") do %>
     <%= text_field_tag('username', nil, :placeholder => 'Username') %> 
-    <%= text_field_tag('password', nil, :placeholder => 'Password') %> 
+    <%= password_field_tag('password', nil, :placeholder => 'Password') %>
     <%= submit_tag("Log In", :id => "login-button", :class => "btn btn-success") %>
   <% end %>
 
