@@ -28,7 +28,6 @@ var scroll_magic = function(){
 }
 
 var markElephant = function(){
-  var minDistance;
   var nearest = null;
   var winHeight;
 

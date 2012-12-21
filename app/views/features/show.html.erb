@@ -1,9 +1,9 @@
 <section class="deck-detail container">
 
-  <%= render :partial => 'subheader' %>
+  <%= render :partial => 'subheader', :locals => { :current_feature => @current_feature }%>
 
   <div class="blog-create" data-collapse>
-    <p class="tip">+ create a new one</p>
+    <p class="tip">➕ Add</p>
     <%= form_for :blog, :url => deck_feature_blogs_path(@current_deck.id, @current_feature.id) do |f| %>
       <%= f.label :title, "title" %>
       <%= f.text_field :title %>
@@ -31,7 +31,7 @@
         <div class="operation">
           <%= link_to "", "#", :class => "edit", :id =>c.id %>
           <%= link_to "🚫", "#", :class => "cancel", :id =>c.id %>
-          <%= link_to "❌",deck_feature_blog_path(@current_deck.id, @current_feature.id, c.id),:confirm => "Are you sure?", :method => :delete, :class => "delete" %>
+          <%= link_to "",deck_feature_blog_path(@current_deck.id, @current_feature.id, c.id),:confirm => "Are you sure?", :method => :delete, :class => "delete" %>
         </div>
       </div>
     <% end %> 

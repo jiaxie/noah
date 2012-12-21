@@ -8,7 +8,7 @@
       <% if @features != nil%>
         <ul class="feature-list">
           <% @features.each do |c|%>
-            <li>
+            <li class="<%=current_feature.id == c.id ? 'current': '' %>">
               <%= link_to c.name, deck_feature_path(@current_deck.id, c.id) %>
             </li>
           <% end %>
@@ -17,8 +17,7 @@
     <% end %>
   </div> 
 
-  <div class="operates">
-    <a href="/noah/logout" class="logout">logout</a>
-    <a href="/noah/show" class="back">back</a>
-  </div>
+  <!--<div class="operates">-->
+    <!--<a href="/noah/show" class="back">back</a>-->
+  <!--</div>-->
 </div>
