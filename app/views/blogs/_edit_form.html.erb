@@ -5,5 +5,13 @@
       <%= f.submit :value=> "submit", :class => "button" %>
 <% end %>
 <script type="text/javascript">
- KindEditor.create(".edit-form textarea", {"id":"edit_blog_content","width":"100%","height":300,"allowFileManager":true,"uploadJson":"/kindeditor/upload","fileManagerJson":"/kindeditor/filemanager"});
+ KindEditor.create(".edit-form textarea",
+         {"id":"edit_blog_content",
+          "width":"100%",
+          "height":300,
+          "allowFileManager":true,
+          "uploadJson":"/kindeditor/upload",
+          "fileManagerJson":"/kindeditor/filemanager",
+          "items": ['source', 'formatblock', 'bold', 'italic', 'underline', 'link', '|', 'indent', 'outdent', '|', 'insertorderedlist', 'insertunorderedlist', 'image', 'fullscreen']
+         });
 </script>
