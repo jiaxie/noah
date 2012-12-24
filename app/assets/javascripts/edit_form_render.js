@@ -1,50 +1,74 @@
 $(function(){
-  $('.edit-icon').click(function(){
-      var blogItem = $(this).parents('.blog-item');
-      render_edit_form(blogItem);
-  });
-  $('.cancel').click(function(){
-       var blogItem = $(this).parents('.blog-item');
-       cancel_edit(blogItem);
-  });
+    Blog('.blog-item');
 });
-function submit_blog(){
-    var $that = $(this);
-    $that.ajaxSubmit({
+function Blog(selector){
+    if($(selector).size() > 1){
+        var blogs = [];
+        $(selector).each(function(idx, item){
+            blogs.push(new Blog(item));
+        });
+        return blogs;
+    }else{
+        this.init(selector);
+    }
+}
+
+Blog.prototype = {
+  init: function(selector){
+    var $selector = $(selector);
+    this.title = $selector.find('.blog-title');
+    this.content = $selector.find('.blog-content');
+    this.formContainer = $selector.find('.edit-form');
+    this.editBtn = $selector.find('.operation .edit-icon');
+    this.cancelBtn = $selector.find('.operation .cancel');
+    this.blogItem = $selector;
+    this.blogId = $selector.attr('id');
+    this.bindEvents();
+  },
+  bindEvents: function(){
+    this.editBtn.click(this.proxy(function(){
+        this.render_edit_form(this.blogItem);
+    }));
+
+    this.cancelBtn.click(this.proxy(function(){
+        this.blogItem.removeClass('edit');
+    }));
+  },
+  render_edit_form: function(){
+    this.blogItem.addClass('edit');
+
+    $.ajax("/blogs/get_blog/" + this.blogId,
+      {dataType:'html'}).success(this.proxy(function(response){
+        this.formContainer.html(response);
+        this.formContainer.find('form').submit(this.proxy(this.submitBlog));
+    }));
+    return false;
+  },
+  submitBlog: function(evt){
+    this.formContainer.find('form').ajaxSubmit({
         dataType: 'json',
-        success: function(response){
-            var blogTitle =  $that.parent().siblings('.blog-title');
-            var blogContent = $that.parent().siblings('.blog-content');
-            var blogNode = $(blogTitle).contents().last()[0];
-            var blogItem = $that.parents('.blog-item');
+        success: this.proxy(function(response){
+            var blogNode = this.title.contents().last()[0];
 
             if('textContent' in blogNode){
                blogNode.textContent = response.title;
             }else{
                blogNode.innerText = response.title;
             }
-            $(blogContent).html(response.content);
-
-            cancel_edit(blogItem);
-        }
+            this.content.html(response.content);
+            this.cancelEdit();
+        })
     });
     return false;
-}
+  },
+  cancelEdit: function(){
+     this.blogItem.removeClass('edit');
+  },
+  proxy: function(callback){
+      var _ = this;
+      return function(){
+        return callback.apply(_, arguments);
+      };
+  }
+};
 
-function render_edit_form(blogItem){
-  $(blogItem).addClass('edit');
-  var bid = $(blogItem).attr("id");
-  $.ajax("/blogs/get_blog/" + bid,
-      {dataType:'html'}).success(function(response){
-        $('.edit-form').each(function(){
-          if(this.id == bid){
-             $(this).html(response);
-             $(this).find('form.edit_blog').submit(submit_blog);
-          }
-    })
-  });
-  return false;
-}
-function cancel_edit(blogItem){
-  $(blogItem).removeClass('edit');
-}

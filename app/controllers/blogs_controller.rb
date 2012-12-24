@@ -25,7 +25,6 @@ class BlogsController < ApplicationController
   end
 
   def update
-    p "***********"
     @blog = Blog.find(params[:id])
     @blog.update_attributes(params[:blog])
     respond_to do |format|
