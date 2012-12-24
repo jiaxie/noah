@@ -42,24 +42,27 @@ section.aboard{
   margin-top: 40px;
 
   .deck-item{
-  margin: 20px;
-  position: relative;
+  max-width: 240px; 
+  margin-top: 20px;
+  position: relative; 
+
+  border-bottom: 1px solid #ccc;
 
     a { 
-      color: black; 
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      position: absolute;
-      top: 40px;
-    }
+        color: #666; 
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
 
-    img {
-      height: 80px;
-    }
+        img {
+          margin-right: 15px;
+          height: 60px;
+        }
+      }
   }
 
   .ark {
+    height: 300px;
     position: absolute;
     bottom: 10px;
     right: 10px;

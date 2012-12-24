@@ -1,9 +1,11 @@
 <section class="aboard container">
-<hr>
+
 <% @decks.each do |c| %>
   <div class="deck-item">
-    <img src="/assets/deck-icon.gif">
-    <%= link_to c.name, deck_path(c.id) %>
+    <a href="<%= deck_path(c.id) %>">
+      <img src="/assets/wheel.png">
+      <%= c.name %>
+    </a>
   </div>
 <% end %>
 
