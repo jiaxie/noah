@@ -1,70 +1,50 @@
 $(function(){
-  hide_cancel_button();
-  $('.edit').click(render_edit_form);
-  $('.cancel').click(cancel_edit);
+  $('.edit-icon').click(function(){
+      var blogItem = $(this).parents('.blog-item');
+      render_edit_form(blogItem);
+  });
+  $('.cancel').click(function(){
+       var blogItem = $(this).parents('.blog-item');
+       cancel_edit(blogItem);
+  });
 });
+function submit_blog(){
+    var $that = $(this);
+    $that.ajaxSubmit({
+        dataType: 'json',
+        success: function(response){
+            var blogTitle =  $that.parent().siblings('.blog-title');
+            var blogContent = $that.parent().siblings('.blog-content');
+            var blogNode = $(blogTitle).contents().last()[0];
+            var blogItem = $that.parents('.blog-item');
 
-var hide_cancel_button = function(){
-  $('.cancel').each(function(){
-    $(this).hide();
-  })
+            if('textContent' in blogNode){
+               blogNode.textContent = response.title;
+            }else{
+               blogNode.innerText = response.title;
+            }
+            $(blogContent).html(response.content);
+
+            cancel_edit(blogItem);
+        }
+    });
+    return false;
 }
 
-var render_edit_form = function(){
-  var bid = this.id;
-
-  $('.blog-title').each(function(){
-      if(this.id == bid){
-        $(this).hide();
-      }
-    })
-
-  $('.blog-content').each(function(){
-    if(this.id == bid){
-      $(this).hide();
-    }
-  })
-
-  $('.cancel').each(function(){
-    if(this.id == bid){
-      $(this).show();
-    }
-  })
-
-  $(this).hide();
-
-  $.ajax("/blogs/get_blog/" + bid, {dataType:'html'}).success(function(response){
-    $('.edit-form').each(function(){
-      if(this.id == bid){
-        $(this).html(response);
-
-      }
+function render_edit_form(blogItem){
+  $(blogItem).addClass('edit');
+  var bid = $(blogItem).attr("id");
+  $.ajax("/blogs/get_blog/" + bid,
+      {dataType:'html'}).success(function(response){
+        $('.edit-form').each(function(){
+          if(this.id == bid){
+             $(this).html(response);
+             $(this).find('form.edit_blog').submit(submit_blog);
+          }
     })
   });
   return false;
 }
-
-var cancel_edit = function(){
-  $('.edit-form form').remove();
-
-  var bid = this.id;
-  $('.blog-title').each(function(){
-      if(this.id == bid){
-        $(this).show();
-      }
-    })
-
-  $('.blog-content').each(function(){
-    if(this.id == bid){
-      $(this).show();
-    }
-  })
-
-  $('.edit').each(function(){
-    if(this.id == bid){
-      $(this).show();
-    }
-  })
-
-  $(this).hide();
+function cancel_edit(blogItem){
+  $(blogItem).removeClass('edit');
 }

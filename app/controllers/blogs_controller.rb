@@ -25,10 +25,14 @@ class BlogsController < ApplicationController
   end
 
   def update
+    p "***********"
     @blog = Blog.find(params[:id])
     @blog.update_attributes(params[:blog])
-    goto_deck
+    respond_to do |format|
+      format.json { render :json => {:title => @blog.title, :content => @blog.content}}
+    end
   end
+
 
   def get_blog
     @edited_blog = Blog.find(params[:bid])

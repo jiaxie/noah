@@ -1,1 +1,25 @@
 @import 'compass/css3';
+body{ font: normal normal 62.5% verdana, "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3"}
+a {text-decoration: none; color: #aaa;}
+p {line-height: 1.8em; margin-bottom: 0;}
+.container {
+    font-size: 1.4em;
+    width: 1000px;
+    margin: 0 auto;
+    &.login-block{
+       margin-top: 190px;
+       form{
+        width: 126px;
+        display: block;
+        margin: 0 auto;
+        input {
+            display:block;
+            margin-bottom: 15px;
+            height: 20px;
+            border: 1px solid #CCC;
+        }
+       }
+    }
+}
+
+
