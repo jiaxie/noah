@@ -1,7 +1,15 @@
 <section class="aboard container">
+<hr>
 <% @decks.each do |c| %>
   <div class="deck-item">
+    <img src="/assets/deck-icon.gif">
     <%= link_to c.name, deck_path(c.id) %>
   </div>
-<% end %>    
+<% end %>
+
+<div class="ark">
+  <img src="/assets/ark.jpg">
+</div>
+</section>  
+
 
