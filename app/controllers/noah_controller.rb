@@ -1,6 +1,7 @@
 class NoahController < ApplicationController
 
   def index
+    find_latest_blog
     if session[:login_at].present?
       redirect_to "/noah/show" 
     else
@@ -9,6 +10,9 @@ class NoahController < ApplicationController
   end
 
   def login
+    if @latest_blogs == nil
+      find_latest_blog
+    end
   end
 
   def logout
@@ -68,6 +72,13 @@ class NoahController < ApplicationController
     Feature.destroy_all
     Blog.destroy_all
     redirect_to :action => 'index'
+  end
+
+  def find_latest_blog
+    @latest_blogs = Blog.order('created_at DESC').find(:all)
+    if(@latest_blogs.length > 5)
+      @latest_blogs = @latest_blogs[0,5]
+    end
   end
 
   def clean

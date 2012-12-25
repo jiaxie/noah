@@ -1,8 +1,8 @@
 class BlogsController < ApplicationController
   def create
-    @current_deck = Deck.find(session[:deck_id])
+    @current_deck = session[:current_user].decks.find(session[:deck_id])
     @features = @current_deck.features
-    @current_feature = @features.find(session[:feature_id])
+    @current_feature = @features.find(:first)
     @current_feature.blogs.create! params[:blog]
     @blogs = @current_feature.blogs
     goto_deck
@@ -41,6 +41,6 @@ class BlogsController < ApplicationController
   end
 
   def goto_deck
-    redirect_to deck_feature_path(session[:deck_id],session[:feature_id])
+    redirect_to deck_feature_path(session[:deck_id],@current_feature.id)
   end
 end

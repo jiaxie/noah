@@ -37,6 +37,60 @@ header {
         top:34px;
     }
 }
+.landing-page{
+  position: relative;
+  min-height: 600px;
+
+  .login-block{
+    position: absolute;
+    right: 60px;
+    top: -40px;
+    width: 150px;
+
+    form{
+      width: 80px;
+    }
+  }
+
+  .latest-blog{
+    position: absolute;
+    top: 80px;
+
+    .latest-blog-item{
+      margin-top: 10px;
+      font-size: 16px;
+      border-bottom: 1px solid black;
+
+      .title{
+        display: inline;
+        margin-left: 5px;
+      }
+
+      .date {
+        color: #999;
+        display: inline;
+        font-size: 10px;
+        margin-left: 8px;
+      }
+
+      img {
+        height: 30px;
+      }
+    }
+  }
+
+  .ark{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+    img{
+        opacity: 0.8;
+        height: 200px;
+    }
+  }
+}
+
 
 section.aboard{
   margin-top: 40px;
