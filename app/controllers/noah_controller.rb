@@ -17,6 +17,7 @@ class NoahController < ApplicationController
     redirect_to "/noah/login"
   end
 
+
   def login_validate
     if user_validate
       session[:login_at] = Time.now
