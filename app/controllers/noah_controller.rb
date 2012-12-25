@@ -20,9 +20,10 @@ class NoahController < ApplicationController
   def login_validate
     if user_validate
       session[:login_at] = Time.now
-      redirect_to "/noah/show"
+
+      redirect_to "/decks/0/features/0"
     else
-      flash[:error_message] = "invalid"
+      flash[:error_message] = "your password is incorrect!"
       redirect_to "/noah/login" 
     end
   end
