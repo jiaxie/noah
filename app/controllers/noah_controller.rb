@@ -39,23 +39,25 @@ class NoahController < ApplicationController
 
   def fake_data
     clean
-    user = User.create!({:name => 'admin', :password => 'admin123'})
-    deck_data = { :name => "deck1" }
-    deck_data2 = { :name => "deck2" }
 
-    user.decks.create! deck_data
-    user.decks.create! deck_data2
+    i = 10
 
-    feature_data = {:name => "blog"}
-    feature_data2 = {:name => "resource"}
+    loop{
+      if i == 0
+        break
+      else
+        user = User.create!({:name => 'drupal' + i.to_s, :password => 'incorrect' + i.to_s})
+        deck_data = { :name => "deck" }
+        user.decks.create! deck_data
+        feature_data = {:name => "blog"}
 
-    deck = user.decks.find :first
-    deck.features.create! feature_data
-    deck.features.create! feature_data2
+        deck = user.decks.find :first 
+        deck.features.create! feature_data
 
-    deck2 = user.decks.find :last
-    deck2.features.create! feature_data
-    deck2.features.create! feature_data2
+        i = i - 1
+      end
+    }
+
     redirect_to "/noah/login"
   end
 
