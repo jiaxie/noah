@@ -1,6 +1,13 @@
 $(function(){
   hide_and_bundle();
   scroll_magic();
+  $('.tip').click(function(){
+     if($(this).hasClass('close')){
+         $(this).children('a').html("❌");
+     }else{
+         $(this).children('a').html('➕ Add');
+     }
+  });
 });
 
 $(window).scroll(function(){ 

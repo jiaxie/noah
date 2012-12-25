@@ -7,7 +7,7 @@
     <%= form_for :blog, :url => deck_feature_blogs_path(@current_deck.id, @current_feature.id) do |f| %>
       <%= f.label :title, "title" %>
       <%= f.text_field :title %>
-      <%= f.kindeditor :content %>
+      <%= f.kindeditor :content%>
       <%= f.submit :value=> "submit", :class => "button" %>
     <% end %>
   </div>
@@ -45,3 +45,14 @@
     <div class="mouse-detector"></div>
   </div> 
 </section>
+<script type="text/javascript">
+ KindEditor.create(".blog-create textarea",
+         {"id":"blog_content",
+          "width":"100%",
+          "height":300,
+          "allowFileManager":true,
+          "uploadJson":"/kindeditor/upload",
+          "fileManagerJson":"/kindeditor/filemanager",
+          "items": ['source', 'formatblock', 'bold', 'italic', 'underline', 'link', '|', 'indent', 'outdent', '|', 'insertorderedlist', 'insertunorderedlist', 'image', 'fullscreen']
+         });
+</script>
