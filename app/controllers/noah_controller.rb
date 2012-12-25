@@ -31,6 +31,7 @@ class NoahController < ApplicationController
 
   def user_validate
     session[:current_user] = User.find_by_name_and_password(params[:username], params[:password])
+    session[:watching_user] = session[:current_user]
     session[:current_user].present?
   end
 
@@ -76,6 +77,11 @@ class NoahController < ApplicationController
     if(@latest_blogs.length > 5)
       @latest_blogs = @latest_blogs[0,5]
     end
+  end
+
+  def find_user
+    session[:watching_user] = Blog.find(params[:bid]).feature.deck.user
+    redirect_to "/decks/1/features/1"
   end
 
   def clean

@@ -1,6 +1,11 @@
 class FeaturesController < ApplicationController
   def show
-    @current_user = session[:current_user]
+    @observer_mode = true
+    if session[:current_user].present? && session[:watching_user].present?
+      @observer_mode = session[:current_user].id != session[:watching_user].id 
+    end
+    
+    @current_user = session[:watching_user]
     @current_deck = @current_user.decks.find(:first)
     @features = @current_deck.features
     @current_feature = @features.find(:first)

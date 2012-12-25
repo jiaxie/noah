@@ -21,9 +21,11 @@
     <% if @latest_blogs != nil %>
       <% @latest_blogs.each do |c| %>
         <div class="latest-blog-item">
+          <a href="/gotosee/<%= c.id.to_s %>">
           <img src="/assets/wheel.png">
           <p class= "title"><%= c.title %></p>
           <p class= "date"><%= c.created_at.strftime("%b %d") %></p>
+          </a>
         </div>
       <% end %>
     <% end %>
