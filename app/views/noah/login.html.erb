@@ -1,18 +1,21 @@
-<div class="container landing-page"> 
-  <div class="login-block"> 
-    <p> Login</p>
-      <%= form_tag('', :id => "auth-form") do %>
-        <%= text_field_tag('username', nil, :placeholder => 'Username') %> 
-        <%= password_field_tag('password', nil, :placeholder => 'Password') %>
-        <%= submit_tag("Log In", :id => "login-button", :class => "btn btn-success") %>
-      <% end %>
+<div class="container landing-page">
 
-      <% if flash[:error_message] %>
-        <div id="error-message" class="alert alert-error">
-          <%= flash[:error_message] %>
-        </div>
-      <% end %>
-  </div>
+  <% if session[:current_user] == nil%> 
+    <div class="login-block"> 
+      <p> Login</p>
+        <%= form_tag('', :id => "auth-form") do %>
+          <%= text_field_tag('username', nil, :placeholder => 'Username') %> 
+          <%= password_field_tag('password', nil, :placeholder => 'Password') %>
+          <%= submit_tag("Log In", :id => "login-button", :class => "btn btn-success") %>
+        <% end %>
+
+        <% if flash[:error_message] %>
+          <div id="error-message" class="alert alert-error">
+            <%= flash[:error_message] %>
+          </div>
+        <% end %>
+    </div>
+  <% end %>
 
   <div class="latest-blog">
     <% if @latest_blogs != nil %>

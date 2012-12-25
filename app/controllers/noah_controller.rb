@@ -2,11 +2,7 @@ class NoahController < ApplicationController
 
   def index
     find_latest_blog
-    if session[:login_at].present?
-      redirect_to "/noah/show" 
-    else
-      redirect_to "/noah/login"
-    end  
+    redirect_to "/noah/login" 
   end
 
   def login

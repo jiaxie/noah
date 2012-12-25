@@ -1,7 +1,5 @@
 <section class="deck-detail container">
 
-  <%= render :partial => 'subheader', :locals => { :current_feature => @current_feature }%>
-
   <div class="blog-create" data-collapse>
     <p class="tip">➕ Add</p>
     <%= form_for :blog, :url => deck_feature_blogs_path(@current_deck.id, @current_feature.id) do |f| %>
