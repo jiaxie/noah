@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   def create
-    @current_deck = session[:current_user].decks.find(:first)
+    user = User.find(session[:logged_uid])
+    @current_deck = user.decks.find(:first)
     @features = @current_deck.features
     @current_feature = @features.find(:first)
     @current_feature.blogs.create! params[:blog]
