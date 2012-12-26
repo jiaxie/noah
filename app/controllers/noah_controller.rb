@@ -2,6 +2,7 @@ class NoahController < ApplicationController
 
   def index
     find_latest_blog
+    session[:observed_uid] = session[:logged_uid]
   end
 
   def login
@@ -19,7 +20,7 @@ class NoahController < ApplicationController
       session[:login_at] = Time.now
       session[:observed_uid] = session[:logged_uid]
 
-      redirect_to "/decks/0/features/0"
+      redirect_to "/decks/1/features/1"
     else
       flash[:error_message] = "your password is incorrect"
       redirect_to "/"

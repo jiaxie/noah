@@ -21,7 +21,7 @@ header {
     .sub-title{
         position: absolute;
         top: 35px;
-        left: 110px;
+        left: 100px;
         margin-left: 20px;
     }
     .welcome-user{
@@ -57,13 +57,14 @@ header {
     top: 80px;
 
     .latest-blog-item{
-      margin-top: 10px;
+      margin: 10px;
       font-size: 16px;
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid #aaa;
 
       .title{
         display: inline;
         margin-left: 5px;
+        color: black;
       }
 
       .date {
@@ -76,6 +77,11 @@ header {
       img {
         height: 30px;
       }
+    }
+
+    .check-mine {
+      margin-top: 10px;
+      color: black;
     }
   }
 
