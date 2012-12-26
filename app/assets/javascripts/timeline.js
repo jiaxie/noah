@@ -48,7 +48,7 @@ var markElephant = function(){
   $(".blog-item").each(function(){
     var topDis = this.getBoundingClientRect().top;
     var bottomDis = this.getBoundingClientRect().bottom;
-     if(topDis < winHeight*0.4 && bottomDis >= winHeight*0.4){
+     if(topDis < winHeight*0.3 && bottomDis >= winHeight*0.3){
          nearest = this;
      }
   });

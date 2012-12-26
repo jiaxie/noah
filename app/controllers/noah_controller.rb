@@ -2,41 +2,40 @@ class NoahController < ApplicationController
 
   def index
     find_latest_blog
-    redirect_to "/noah/login" 
   end
 
   def login
-    if @latest_blogs == nil
-      find_latest_blog
-    end
   end
 
   def logout
     session[:login_at] = nil
-    session[:current_user] = nil
-    redirect_to "/noah/login"
+    session[:logged_uid] = nil
+    redirect_to "/"
   end
 
 
   def login_validate
     if user_validate
       session[:login_at] = Time.now
+      session[:observed_uid] = session[:logged_uid]
 
       redirect_to "/decks/0/features/0"
     else
-      flash[:error_message] = "your password is incorrect!"
-      redirect_to "/noah/login" 
+      session[:error_message] = "your password is incorrect"
+      redirect_to "/"
     end
   end
 
   def user_validate
-    session[:current_user] = User.find_by_name_and_password(params[:username], params[:password])
-    session[:watching_user] = session[:current_user]
-    session[:current_user].present?
+    logged_user = User.find_by_name_and_password(params[:username], params[:password])
+    if logged_user != nil
+      session[:logged_uid] = logged_user.id
+    end
+    session[:logged_uid].present?
   end
 
   def show
-    @current_user = session[:current_user]
+    @current_user = User.find(session[:logged_uid])
     @decks = @current_user.decks
   end
 
@@ -61,7 +60,7 @@ class NoahController < ApplicationController
       end
     }
 
-    redirect_to "/noah/login"
+    redirect_to "/"
   end
 
   def clean_fake_data
@@ -80,7 +79,8 @@ class NoahController < ApplicationController
   end
 
   def find_user
-    session[:watching_user] = Blog.find(params[:bid]).feature.deck.user
+    observed_user = Blog.find(params[:bid]).feature.deck.user
+    session[:observed_uid] = observed_user.id
     redirect_to "/decks/1/features/1"
   end
 
