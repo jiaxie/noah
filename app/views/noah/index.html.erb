@@ -9,9 +9,9 @@
           <%= submit_tag("Log In", :id => "login-button", :class => "btn btn-success") %>
         <% end %>
 
-        <% if session[:error_message] %>
+        <% if flash[:error_message] %>
           <div id="error-message" class="alert alert-error">
-            <%= session[:error_message] %>
+            <%= flash[:error_message] %>
           </div>
         <% end %>
     </div>

@@ -21,7 +21,7 @@ class NoahController < ApplicationController
 
       redirect_to "/decks/0/features/0"
     else
-      session[:error_message] = "your password is incorrect"
+      flash[:error_message] = "your password is incorrect"
       redirect_to "/"
     end
   end
@@ -30,6 +30,7 @@ class NoahController < ApplicationController
     logged_user = User.find_by_name_and_password(params[:username], params[:password])
     if logged_user != nil
       session[:logged_uid] = logged_user.id
+      session[:logged_user_name] = logged_user.name
     end
     session[:logged_uid].present?
   end

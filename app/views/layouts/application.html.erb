@@ -13,8 +13,8 @@
   <p class="sub-title">Save your memory before end of the world</p>
 
   <% if session[:logged_uid].present?%>
-    <p class="welcome-user">Hi user 
-      <%= session[:logged_uid] %>
+    <p class="welcome-user">Hi  
+      <%= session[:logged_user_name] %>
     </p>
     <a href="/noah/logout" class="logout">logout</a>
   <% else %>
